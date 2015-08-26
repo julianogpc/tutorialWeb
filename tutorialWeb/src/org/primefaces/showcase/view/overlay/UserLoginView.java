@@ -1,18 +1,30 @@
 package org.primefaces.showcase.view.overlay;
 
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+import javax.inject.Named;
 
 import org.primefaces.context.RequestContext;
 
-@ManagedBean
+@Named
+@RequestScoped
 public class UserLoginView {
 
 	private String username;
 
 	private String password;
+
+	@PostConstruct
+	public void init() {
+		System.out.println(" Bean executado! ");
+	}
+
+	public String getMessage() {
+		return "Hello World JSF!";
+	}
 
 	public String getUsername() {
 		return username;
